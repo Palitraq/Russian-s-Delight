@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:brick"
+    },
+    "i": {
+      "tag": "c:iron_ingots"
+    }
+  },
+  "pattern": [
+    "   ",
+    "b b",
+    "iii"
+  ],
+  "result": {
+    "item": "russiansdelight:small_pot"
+  },
+  "show_notification": true
+}
