@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "f": {
+      "tag": "minecraft:fishes"
+    },
+    "m": [
+      { "item": "minecraft:brown_mushroom" },
+      { "item": "minecraft:red_mushroom" }
+    ],
+    "r": {
+      "item": "farmersdelight:rice"
+    },
+    "p": {
+      "item": "farmersdelight:pie_crust"
+    }
+  },
+  "pattern": [
+    "fff",
+    "mmm",
+    "rpr"
+  ],
+  "result": {
+    "item": "russiansdelight:fish_pie"
+  }
+}

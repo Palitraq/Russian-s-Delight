@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "d": {
+      "item": "farmersdelight:wheat_dough"
+    },
+    "e": {
+      "item": "minecraft:egg"
+    },
+    "s": {
+      "item": "minecraft:sugar"
+    },
+    "B": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "pattern": [
+    "d d",
+    "e e",
+    "sBs"
+  ],
+  "result": {
+    "item": "russiansdelight:pancakes_tray"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "d": {
+      "item": "farmersdelight:wheat_dough"
+    },
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "c": {
+      "item": "farmersdelight:cabbage"
+    },
+    "B": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "pattern": [
+    "dPd",
+    "cBc"
+  ],
+  "result": {
+    "item": "russiansdelight:cabbage_pies_tray"
+  }
+}
