@@ -2,10 +2,10 @@ package com.amongfox.russiansdelight.registry;
 
 import com.amongfox.russiansdelight.RussiansDelight;
 import com.amongfox.russiansdelight.item.FoodItem;
+import com.amongfox.russiansdelight.item.PotBlockItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SuspiciousStewItem;
@@ -35,10 +35,10 @@ public enum ModItems {
 
 	// Blocks
 	SMALL_POT("small_pot", () -> new BlockItem(ModBlocks.SMALL_POT.get(), new Item.Properties())),
-	BORSCHT_POT("borscht_pot", () -> new BlockItem(ModBlocks.BORSCHT_POT.get(), new Item.Properties())),
-	SHCHI_POT("shchi_pot", () -> new BlockItem(ModBlocks.SHCHI_POT.get(), new Item.Properties())),
-	SOLYANKA_POT("solyanka_pot", () -> new BlockItem(ModBlocks.SOLYANKA_POT.get(), new Item.Properties())),
-	RASSOLNIK_POT("rassolnik_pot", () -> new BlockItem(ModBlocks.RASSOLNIK_POT.get(), new Item.Properties())),
+	BORSCHT_POT("borscht_pot", () -> new PotBlockItem(ModBlocks.BORSCHT_POT.get(), ModItems.SMALL_POT.get(), new Item.Properties())),
+	SHCHI_POT("shchi_pot", () -> new PotBlockItem(ModBlocks.SHCHI_POT.get(), ModItems.SMALL_POT.get(), new Item.Properties())),
+	SOLYANKA_POT("solyanka_pot", () -> new PotBlockItem(ModBlocks.SOLYANKA_POT.get(), ModItems.SMALL_POT.get(), new Item.Properties())),
+	RASSOLNIK_POT("rassolnik_pot", () -> new PotBlockItem(ModBlocks.RASSOLNIK_POT.get(), ModItems.SMALL_POT.get(), new Item.Properties())),
 	PANCAKES_TRAY("pancakes_tray", () -> new BlockItem(ModBlocks.PANCAKES_TRAY.get(), new Item.Properties())),
 	FISH_PIE("fish_pie", () -> new BlockItem(ModBlocks.FISH_PIE.get(), new Item.Properties())),
 	CABBAGE_PIES_TRAY("cabbage_pies_tray", () -> new BlockItem(ModBlocks.CABBAGE_PIES_TRAY.get(), new Item.Properties())),
