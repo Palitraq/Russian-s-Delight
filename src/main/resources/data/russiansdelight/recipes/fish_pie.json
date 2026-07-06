@@ -2,9 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "food",
   "key": {
-    "f": {
-      "tag": "minecraft:fishes"
-    },
+    "f": [
+      { "item": "minecraft:cod" },
+      { "item": "minecraft:salmon" },
+      { "item": "minecraft:pufferfish" },
+      { "item": "minecraft:tropical_fish" }
+    ],
     "m": [
       { "item": "minecraft:brown_mushroom" },
       { "item": "minecraft:red_mushroom" }

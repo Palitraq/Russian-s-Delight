@@ -24,7 +24,8 @@ public enum FoodItem {
 
 	// ОСНОВНЫЕ БЛЮДА
 	ROAST(14, 16.0F),
-	PELMENI(6, 8.0F);
+	PELMENI(6, 8.0F),
+	DUMPLING(1, 1.0F);
 
 	private final Supplier<FoodProperties> food;
 

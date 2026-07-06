@@ -32,6 +32,7 @@ public enum ModItems {
 	// Main courses
 	ROAST("bowl_of_roast", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.ROAST).stacksTo(1))),
 	PELMENI("bowl_of_pelmeni", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.PELMENI).stacksTo(1))),
+	DUMPLING("dumpling", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.DUMPLING))),
 
 	// Blocks
 	SMALL_POT("small_pot", () -> new BlockItem(ModBlocks.SMALL_POT.get(), new Item.Properties())),
