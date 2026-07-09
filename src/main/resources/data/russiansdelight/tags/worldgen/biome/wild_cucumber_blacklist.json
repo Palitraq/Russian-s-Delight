@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:lush_caves",
+    "minecraft:dripstone_caves",
+    "minecraft:deep_dark",
+    "#minecraft:is_ocean",
+    "#minecraft:is_river",
+    "#minecraft:is_mountain"
+  ]
+}

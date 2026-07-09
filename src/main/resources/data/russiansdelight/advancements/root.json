@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "russiansdelight:borscht_pot"
+    },
+    "title": {
+      "text": "Russian's Delight"
+    },
+    "description": {
+      "text": "Добро пожаловать в мир русской кухни!"
+    },
+    "background": "minecraft:textures/block/bricks.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

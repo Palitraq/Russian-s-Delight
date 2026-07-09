@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 600,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "russiansdelight:dumpling"
+    },
+    {
+      "item": "russiansdelight:dumpling"
+    },
+    {
+      "item": "russiansdelight:dumpling"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "russiansdelight:bowl_of_pelmeni"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "russiansdelight:pancakes_tray"
+    },
+    "title": {
+      "text": "Масленица!"
+    },
+    "description": {
+      "text": "Испеки поднос блинов"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "russiansdelight:root",
+  "criteria": {
+    "has_pancakes_tray": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "russiansdelight:pancakes_tray"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

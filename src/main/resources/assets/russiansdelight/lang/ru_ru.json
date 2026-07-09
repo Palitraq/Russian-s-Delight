@@ -23,5 +23,10 @@
   "block.russiansdelight.pancakes_tray": "Поднос с блинами",
   "block.russiansdelight.fish_pie": "Рыбный пирог",
   "block.russiansdelight.cabbage_pies_tray": "Поднос с пирожками из капусты",
-  "block.russiansdelight.berries_pies_tray": "Поднос с ватрушками из ягод"
+  "block.russiansdelight.berries_pies_tray": "Поднос с ватрушками из ягод",
+
+  "block.russiansdelight.wild_cucumber": "Дикий огурец",
+  "block.russiansdelight.budding_cucumber_crop": "Кустик огурца",
+
+  "item.russiansdelight.cucumber_seeds": "Семена огурца"
 }

@@ -1,13 +1,11 @@
 package com.amongfox.russiansdelight.block;
 
-import com.amongfox.russiansdelight.registry.ModItems;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.BlockGetter;
@@ -22,14 +20,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class WildCucumberBlock extends FlowerBlock implements BonemealableBlock {
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
-
-	@Override
-	public void spawnAfterBreak(BlockState state, ServerLevel world, BlockPos pos, ItemStack tool, boolean dropExperience) {
-		super.spawnAfterBreak(state, world, pos, tool, dropExperience);
-		int count = world.random.nextInt(1, 4);
-		ItemStack cucumber = new ItemStack(ModItems.CUCUMBER.get(), count);
-		Block.popResource(world, pos, cucumber);
-	}
 
 	public WildCucumberBlock(MobEffect suspiciousStewEffect, int effectDuration, BlockBehaviour.Properties settings) {
 		super(suspiciousStewEffect, effectDuration, settings);

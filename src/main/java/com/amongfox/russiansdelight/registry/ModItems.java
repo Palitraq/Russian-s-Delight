@@ -8,9 +8,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.SuspiciousStewItem;
+import net.minecraft.world.level.block.Block;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public enum ModItems {
@@ -46,7 +49,21 @@ public enum ModItems {
 	BERRIES_PIES_TRAY("berries_pies_tray", () -> new BlockItem(ModBlocks.BERRIES_PIES_TRAY.get(), new Item.Properties())),
 
 	// Crops
-	WILD_CUCUMBER("wild_cucumber", () -> new BlockItem(ModBlocks.WILD_CUCUMBER.get(), new Item.Properties()));
+	WILD_CUCUMBER("wild_cucumber", () -> new BlockItem(ModBlocks.WILD_CUCUMBER.get(), new Item.Properties())),
+	CUCUMBER_SEEDS("cucumber_seeds", () -> new ItemNameBlockItem(ModBlocks.BUDDING_CUCUMBER_CROP.get(), new Item.Properties())
+	{
+		@Override
+		public void registerBlocks(Map<Block, Item> blockToItemMap, Item item) {
+			super.registerBlocks(blockToItemMap, item);
+			blockToItemMap.put(ModBlocks.CUCUMBER_CROP.get(), item);
+		}
+
+		@Override
+		public void removeFromBlockToItemMap(Map<Block, Item> blockToItemMap, Item itemIn) {
+			super.removeFromBlockToItemMap(blockToItemMap, itemIn);
+			blockToItemMap.remove(ModBlocks.CUCUMBER_CROP.get());
+		}
+	});
 
 	private final String pathName;
 	private final Supplier<Item> itemSupplier;

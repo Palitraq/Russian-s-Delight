@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "russiansdelight:borscht_pot"
+    },
+    "title": {
+      "text": "Вкуснятина"
+    },
+    "description": {
+      "text": "Свари кастрюлю супа"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "russiansdelight:root",
+  "criteria": {
+    "has_borscht_pot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": [ "russiansdelight:borscht_pot" ] }
+        ]
+      }
+    }
+  }
+}

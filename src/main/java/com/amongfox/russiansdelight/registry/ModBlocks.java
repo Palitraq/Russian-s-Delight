@@ -2,6 +2,7 @@ package com.amongfox.russiansdelight.registry;
 
 import com.amongfox.russiansdelight.RussiansDelight;
 import com.amongfox.russiansdelight.block.*;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -14,7 +15,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
-
+import net.minecraft.world.level.material.PushReaction;
 import java.util.function.Supplier;
 
 import static com.amongfox.russiansdelight.RussiansDelight.LOGGER;
@@ -39,7 +40,9 @@ public enum ModBlocks {
 	WILD_CUCUMBER("wild_cucumber", () -> new WildCucumberBlock(
 			MobEffects.HUNGER, 6,
 			FabricBlockSettings.copyOf(Blocks.TALL_GRASS).noCollision().breakInstantly().sounds(SoundType.GRASS)
-	), true);
+	), true),
+	BUDDING_CUCUMBER_CROP("budding_cucumber_crop", () -> new BuddingCucumberBlock(Block.Properties.copy(Blocks.WHEAT)), true),
+	CUCUMBER_CROP("cucumber_crop", () -> new CucumberVineBlock(Block.Properties.copy(Blocks.WHEAT)), true);
 
 	private final String pathName;
 	private final Supplier<Block> blockSupplier;
