@@ -15,7 +15,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.PushReaction;
 import java.util.function.Supplier;
 
 import static com.amongfox.russiansdelight.RussiansDelight.LOGGER;
