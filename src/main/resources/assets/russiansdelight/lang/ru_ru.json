@@ -1,5 +1,5 @@
 {
-  "itemgroup.russiansdelight.group": "Русский восторг",
+  "itemgroup.russiansdelight.group": "Русский Восторг",
 
   "item.russiansdelight.cucumber": "Огурец",
   "item.russiansdelight.cabbage_pie": "Пирожок с капустой",
@@ -26,7 +26,5 @@
   "block.russiansdelight.berries_pies_tray": "Поднос с ватрушками из ягод",
 
   "block.russiansdelight.wild_cucumber": "Дикий огурец",
-  "block.russiansdelight.budding_cucumber_crop": "Кустик огурца",
-
   "item.russiansdelight.cucumber_seeds": "Семена огурца"
 }
