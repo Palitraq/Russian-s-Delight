@@ -1,0 +1,76 @@
+{
+  "display": {
+    "icon": {
+      "item": "russiansdelight:borscht_pot"
+    },
+    "title": {
+      "text": "Шеф-повар"
+    },
+    "description": {
+      "text": "Свари все блюда русского застолья"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "russiansdelight:vkusnyatina",
+  "criteria": {
+    "has_borscht_pot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": [ "russiansdelight:borscht_pot" ] }
+        ]
+      }
+    },
+    "has_shchi_pot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": [ "russiansdelight:shchi_pot" ] }
+        ]
+      }
+    },
+    "has_solyanka_pot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": [ "russiansdelight:solyanka_pot" ] }
+        ]
+      }
+    },
+    "has_rassolnik_pot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": [ "russiansdelight:rassolnik_pot" ] }
+        ]
+      }
+    },
+    "has_roast": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": [ "russiansdelight:bowl_of_roast" ] }
+        ]
+      }
+    },
+    "has_pelmeni": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": [ "russiansdelight:bowl_of_pelmeni" ] }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [ "has_borscht_pot" ],
+    [ "has_shchi_pot" ],
+    [ "has_solyanka_pot" ],
+    [ "has_rassolnik_pot" ],
+    [ "has_roast" ],
+    [ "has_pelmeni" ]
+  ]
+}

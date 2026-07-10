@@ -5,6 +5,7 @@ import com.amongfox.russiansdelight.registry.ModItemsGroup;
 import com.amongfox.russiansdelight.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +24,7 @@ public class RussiansDelight implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Load RussiansDelight");
 		Component groupName = Component.translatable("itemgroup.russiansdelight.group");
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MOD_ITEM_GROUP, FabricItemGroup.builder()
 				.title(groupName)
@@ -33,7 +34,14 @@ public class RussiansDelight implements ModInitializer {
 		ModBlocks.registerAll();
 		ModItems.registerAll();
 		ModItemsGroup.registerItemGroups();
+		registerCompostables();
 
 		LOGGER.info(MOD_ID + " successfully initialized");
+	}
+
+	private static void registerCompostables() {
+		CompostingChanceRegistry registry = CompostingChanceRegistry.INSTANCE;
+		registry.add(ModItems.CUCUMBER_SEEDS.get(), 0.3f);
+		registry.add(ModItems.CUCUMBER.get(), 0.65f);
 	}
 }

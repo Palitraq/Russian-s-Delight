@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.SuspiciousStewItem;
 import net.minecraft.world.level.block.Block;
 
 import java.util.Arrays;
@@ -18,24 +17,24 @@ import java.util.function.Supplier;
 
 public enum ModItems {
 	// Other
-	CUCUMBER("cucumber", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.CUCUMBER))),
+	CUCUMBER("cucumber", () -> new Item(createFoodSettings(FoodItem.CUCUMBER))),
 
 	// Bakery
-	PANCAKES("pancakes", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.PANCAKES).stacksTo(0)), false),
-	PIECE_FISH_PIE("piece_fish_pie", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.PIECE_FISH_PIE).stacksTo(0)), false),
-	CABBAGE_PIE("cabbage_pie", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.CABBAGE_PIE).stacksTo(16))),
-	BERRY_PIE("berry_pie", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.BERRY_PIE).stacksTo(16))),
+	PANCAKES("pancakes", () -> new Item(createFoodSettings(FoodItem.PANCAKES)), false),
+	PIECE_FISH_PIE("piece_fish_pie", () -> new Item(createFoodSettings(FoodItem.PIECE_FISH_PIE)), false),
+	CABBAGE_PIE("cabbage_pie", () -> new Item(createFoodSettings(FoodItem.CABBAGE_PIE).stacksTo(16))),
+	BERRY_PIE("berry_pie", () -> new Item(createFoodSettings(FoodItem.BERRY_PIE).stacksTo(16))),
 
 	// Супы
-	BORSCHT("bowl_of_borscht", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.BORSCHT).stacksTo(1))),
-	SHCHI("bowl_of_shchi", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.SHCHI).stacksTo(1))),
-	SOLYANKA("bowl_of_solyanka", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.SOLYANKA).stacksTo(1))),
-	RASSOLNIK("bowl_of_rassolnik", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.RASSOLNIK).stacksTo(1))),
+	BORSCHT("bowl_of_borscht", () -> new Item(createFoodSettings(FoodItem.BORSCHT).stacksTo(1))),
+	SHCHI("bowl_of_shchi", () -> new Item(createFoodSettings(FoodItem.SHCHI).stacksTo(1))),
+	SOLYANKA("bowl_of_solyanka", () -> new Item(createFoodSettings(FoodItem.SOLYANKA).stacksTo(1))),
+	RASSOLNIK("bowl_of_rassolnik", () -> new Item(createFoodSettings(FoodItem.RASSOLNIK).stacksTo(1))),
 
 	// Main courses
-	ROAST("bowl_of_roast", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.ROAST).stacksTo(1))),
-	PELMENI("bowl_of_pelmeni", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.PELMENI).stacksTo(1))),
-	DUMPLING("dumpling", () -> new SuspiciousStewItem(createFoodSettings(FoodItem.DUMPLING))),
+	ROAST("bowl_of_roast", () -> new Item(createFoodSettings(FoodItem.ROAST).stacksTo(1))),
+	PELMENI("bowl_of_pelmeni", () -> new Item(createFoodSettings(FoodItem.PELMENI).stacksTo(1))),
+	DUMPLING("dumpling", () -> new Item(createFoodSettings(FoodItem.DUMPLING))),
 
 	// Blocks
 	SMALL_POT("small_pot", () -> new BlockItem(ModBlocks.SMALL_POT.get(), new Item.Properties())),

@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "russiansdelight:wild_cucumber"
+    },
+    "title": {
+      "text": "Дикий огурец"
+    },
+    "description": {
+      "text": "Найди дикий огурец"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "russiansdelight:root",
+  "criteria": {
+    "has_wild_cucumber": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "russiansdelight:wild_cucumber"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

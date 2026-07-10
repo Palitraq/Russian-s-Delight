@@ -1,0 +1,29 @@
+{
+  "itemgroup.russiansdelight.group": "Russian's Delight",
+
+  "item.russiansdelight.cucumber": "Cucumber",
+  "item.russiansdelight.cabbage_pie": "Cabbage Pie",
+  "item.russiansdelight.berry_pie": "Berry Pie",
+
+  "item.russiansdelight.bowl_of_borscht": "Borscht",
+  "item.russiansdelight.bowl_of_shchi": "Shchi",
+  "item.russiansdelight.bowl_of_solyanka": "Solyanka",
+  "item.russiansdelight.bowl_of_rassolnik": "Rassolnik",
+  "item.russiansdelight.bowl_of_pelmeni": "Bowl of Pelmeni",
+  "item.russiansdelight.bowl_of_roast": "Bowl of Roast",
+  "item.russiansdelight.dumpling": "Dumpling",
+
+  "block.russiansdelight.small_pot": "Small Pot",
+  "block.russiansdelight.borscht_pot": "Borscht Pot",
+  "block.russiansdelight.shchi_pot": "Shchi Pot",
+  "block.russiansdelight.solyanka_pot": "Solyanka Pot",
+  "block.russiansdelight.rassolnik_pot": "Rassolnik Pot",
+
+  "block.russiansdelight.pancakes_tray": "Pancakes Tray",
+  "block.russiansdelight.fish_pie": "Fish Pie",
+  "block.russiansdelight.cabbage_pies_tray": "Cabbage Pies Tray",
+  "block.russiansdelight.berries_pies_tray": "Berries Pies Tray",
+
+  "block.russiansdelight.wild_cucumber": "Wild Cucumber",
+  "item.russiansdelight.cucumber_seeds": "Cucumber Seeds"
+}
