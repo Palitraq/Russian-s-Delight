@@ -7,25 +7,25 @@ import java.util.function.Supplier;
 
 public enum FoodItem {
 	// Овощи
-	CUCUMBER(2, 1.2F, false, true, false),
+	CUCUMBER(2, 0.4F, false, true, false),
 
 	// Супы
-	BORSCHT(14, 12.8F),
-	SHCHI(13, 11.2F),
-	SOLYANKA(14, 13.5F),
-	RASSOLNIK(12, 10.5F),
-	OKROSHKA(10, 8.0F),
+	BORSCHT(14, 0.8F),
+	SHCHI(13, 0.75F),
+	SOLYANKA(14, 0.8F),
+	RASSOLNIK(12, 0.8F),
+	OKROSHKA(10, 0.7F),
 
 	// Выпечка
-	CABBAGE_PIE(6,7.0F),
-	BERRY_PIE(6, 6.0F),
-	PANCAKES(10, 8.0F),
-	PIECE_FISH_PIE(8, 9.5F),
+	CABBAGE_PIE(6, 0.6F),
+	BERRY_PIE(6, 0.5F),
+	PANCAKES(8, 0.6F),
+	PIECE_FISH_PIE(6, 0.6F),
 
 	// ОСНОВНЫЕ БЛЮДА
-	ROAST(14, 16.0F),
-	PELMENI(6, 8.0F),
-	DUMPLING(1, 1.0F);
+	ROAST(14, 0.8F),
+	PELMENI(6, 0.8F),
+	DUMPLING(1, 0.5F);
 
 	private final Supplier<FoodProperties> food;
 
