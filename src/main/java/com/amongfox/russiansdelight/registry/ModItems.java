@@ -36,6 +36,7 @@ public enum ModItems {
 	ROAST("bowl_of_roast", () -> new Item(createFoodSettings(FoodItem.ROAST).stacksTo(1))),
 	PELMENI("bowl_of_pelmeni", () -> new Item(createFoodSettings(FoodItem.PELMENI).stacksTo(1))),
 	DUMPLING("dumpling", () -> new Item(createFoodSettings(FoodItem.DUMPLING))),
+	BREAD_AND_BUTTER("bread_and_butter", () -> new Item(createFoodSettings(FoodItem.BREAD_AND_BUTTER))),
 
 	// Blocks
 	SMALL_POT("small_pot", () -> new BlockItem(ModBlocks.SMALL_POT.get(), new Item.Properties())),

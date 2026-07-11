@@ -12,6 +12,9 @@ public enum FoodItem {
 	// Ингредиенты
 	BUTTER(3, 0.5F),
 
+	// Закуски
+	BREAD_AND_BUTTER(8, 0.7F),
+
 	// Супы
 	BORSCHT(14, 0.8F),
 	SHCHI(13, 0.75F),
