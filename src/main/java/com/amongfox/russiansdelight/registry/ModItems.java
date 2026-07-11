@@ -10,6 +10,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -37,6 +38,8 @@ public enum ModItems {
 	PELMENI("bowl_of_pelmeni", () -> new Item(createFoodSettings(FoodItem.PELMENI).stacksTo(1))),
 	DUMPLING("dumpling", () -> new Item(createFoodSettings(FoodItem.DUMPLING))),
 	BREAD_AND_BUTTER("bread_and_butter", () -> new Item(createFoodSettings(FoodItem.BREAD_AND_BUTTER))),
+	SEMOLINA("semolina", () -> new Item(new Item.Properties())),
+	SEMOLINA_PORRIDGE("bowl_of_semolina_porridge", () -> new Item(createFoodSettings(FoodItem.SEMOLINA_PORRIDGE).stacksTo(1))),
 
 	// Blocks
 	SMALL_POT("small_pot", () -> new BlockItem(ModBlocks.SMALL_POT.get(), new Item.Properties())),
@@ -54,13 +57,13 @@ public enum ModItems {
 	CUCUMBER_SEEDS("cucumber_seeds", () -> new ItemNameBlockItem(ModBlocks.BUDDING_CUCUMBER_CROP.get(), new Item.Properties())
 	{
 		@Override
-		public void registerBlocks(Map<Block, Item> blockToItemMap, Item item) {
+		public void registerBlocks(@NotNull Map<Block, Item> blockToItemMap, @NotNull Item item) {
 			super.registerBlocks(blockToItemMap, item);
 			blockToItemMap.put(ModBlocks.CUCUMBER_CROP.get(), item);
 		}
 
 		@Override
-		public void removeFromBlockToItemMap(Map<Block, Item> blockToItemMap, Item itemIn) {
+		public void removeFromBlockToItemMap(@NotNull Map<Block, Item> blockToItemMap, @NotNull Item itemIn) {
 			super.removeFromBlockToItemMap(blockToItemMap, itemIn);
 			blockToItemMap.remove(ModBlocks.CUCUMBER_CROP.get());
 		}

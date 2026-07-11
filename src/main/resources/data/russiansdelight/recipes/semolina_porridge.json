@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 600,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "item": "russiansdelight:semolina"
+    },
+    {
+      "item": "russiansdelight:butter"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "russiansdelight:bowl_of_semolina_porridge"
+  }
+}

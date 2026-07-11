@@ -31,7 +31,8 @@ public enum FoodItem {
 	// ОСНОВНЫЕ БЛЮДА
 	ROAST(14, 0.8F),
 	PELMENI(6, 0.8F),
-	DUMPLING(1, 0.5F);
+	DUMPLING(1, 0.5F),
+	SEMOLINA_PORRIDGE(10, 0.7F);
 
 	private final Supplier<FoodProperties> food;
 
@@ -59,10 +60,6 @@ public enum FoodItem {
 
 	FoodItem(int hunger, float saturation) {
 		this(hunger, saturation, null, 0.0f, false, false, false);
-	}
-
-	FoodItem(int hunger, float saturation, boolean isMeat) {
-		this(hunger, saturation, null, 0.0f, isMeat, false, false);
 	}
 
 	FoodItem(int hunger, float saturation, boolean isMeat, boolean snack, boolean alwaysEdible) {
