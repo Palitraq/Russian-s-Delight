@@ -31,6 +31,6 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*",
-		"farmersdelight": ">=1.20.1-2.4.0"
+		"farmersdelight": ">=1.20.1-2.1.0"
 	}
 }
