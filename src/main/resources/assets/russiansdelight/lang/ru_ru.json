@@ -4,7 +4,6 @@
   "item.russiansdelight.cucumber": "Огурец",
   "item.russiansdelight.cabbage_pie": "Пирожок с капустой",
   "item.russiansdelight.berry_pie": "Ватрушка с ягодами",
-  "item.russiansdelight.can_pickled_cucumbers": "Банка маринованных огурцов",
 
   "item.russiansdelight.bowl_of_borscht": "Борщ",
   "item.russiansdelight.bowl_of_shchi": "Щи",
@@ -26,5 +25,18 @@
   "block.russiansdelight.berries_pies_tray": "Поднос с ватрушками из ягод",
 
   "block.russiansdelight.wild_cucumber": "Дикий огурец",
-  "item.russiansdelight.cucumber_seeds": "Семена огурца"
+  "item.russiansdelight.cucumber_seeds": "Семена огурца",
+
+  "advancement.russiansdelight.root.title": "Russian's Delight",
+  "advancement.russiansdelight.root.desc": "Добро пожаловать в мир русской кухни!",
+  "advancement.russiansdelight.maslenitsa.title": "Масленица!",
+  "advancement.russiansdelight.maslenitsa.desc": "Испеки поднос блинов",
+  "advancement.russiansdelight.vkusnyatina.title": "Вкуснятина",
+  "advancement.russiansdelight.vkusnyatina.desc": "Свари кастрюлю супа",
+  "advancement.russiansdelight.wild_cucumber_discovery.title": "Дикий огурец",
+  "advancement.russiansdelight.wild_cucumber_discovery.desc": "Найди дикий огурец",
+  "advancement.russiansdelight.master_chef.title": "Шеф-повар",
+  "advancement.russiansdelight.master_chef.desc": "Свари все блюда русского застолья",
+
+  "russiansdelight.jei.info.wild_cucumber": "Дикие огурцы можно найти в джунглях и предгорьях."
 }

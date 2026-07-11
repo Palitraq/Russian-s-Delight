@@ -20,11 +20,12 @@
 		],
 		"client": [
 			"com.amongfox.russiansdelight.RussiansDelightClient"
+		],
+		"jei_mod_plugin": [
+			"com.amongfox.russiansdelight.integration.jei.JEIPlugin"
 		]
 	},
-	"mixins": [
-		"russiansdelight.mixins.json"
-	],
+	"mixins": [],
 	"depends": {
 		"fabricloader": ">=0.15.7",
 		"minecraft": "~1.20.1",
