@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 2400,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "item": "minecraft:milk_bucket"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "russiansdelight:butter"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "food",
-  "key": {
+   "key": {
     "d": {
       "item": "farmersdelight:wheat_dough"
     },
@@ -13,11 +13,17 @@
     },
     "B": {
       "item": "minecraft:bowl"
+    },
+    "b": {
+      "item": "russiansdelight:butter"
+    },
+    "m": {
+      "item": "minecraft:milk_bucket"
     }
   },
   "pattern": [
-    "d d",
-    "e e",
+    "dbd",
+    "eme",
     "sBs"
   ],
   "result": {

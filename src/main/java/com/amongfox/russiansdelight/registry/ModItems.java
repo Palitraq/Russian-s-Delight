@@ -18,6 +18,7 @@ import java.util.function.Supplier;
 public enum ModItems {
 	// Other
 	CUCUMBER("cucumber", () -> new Item(createFoodSettings(FoodItem.CUCUMBER))),
+	BUTTER("butter", () -> new Item(createFoodSettings(FoodItem.BUTTER))),
 
 	// Bakery
 	PANCAKES("pancakes", () -> new Item(createFoodSettings(FoodItem.PANCAKES)), false),

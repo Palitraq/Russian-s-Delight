@@ -9,6 +9,9 @@ public enum FoodItem {
 	// Овощи
 	CUCUMBER(2, 0.4F, false, true, false),
 
+	// Ингредиенты
+	BUTTER(3, 0.5F),
+
 	// Супы
 	BORSCHT(14, 0.8F),
 	SHCHI(13, 0.75F),
