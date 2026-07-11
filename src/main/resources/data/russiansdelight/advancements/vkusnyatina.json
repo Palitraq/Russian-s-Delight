@@ -4,10 +4,10 @@
       "item": "russiansdelight:borscht_pot"
     },
     "title": {
-      "text": "Вкуснятина"
+      "translate": "advancement.russiansdelight.vkusnyatina.title"
     },
     "description": {
-      "text": "Свари кастрюлю супа"
+      "translate": "advancement.russiansdelight.vkusnyatina.desc"
     },
     "frame": "task",
     "show_toast": true,

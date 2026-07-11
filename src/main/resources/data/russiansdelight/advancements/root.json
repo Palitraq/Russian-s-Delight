@@ -4,10 +4,10 @@
       "item": "russiansdelight:borscht_pot"
     },
     "title": {
-      "text": "Russian's Delight"
+      "translate": "advancement.russiansdelight.root.title"
     },
     "description": {
-      "text": "Добро пожаловать в мир русской кухни!"
+      "translate": "advancement.russiansdelight.root.desc"
     },
     "background": "minecraft:textures/block/bricks.png",
     "frame": "task",

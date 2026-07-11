@@ -4,10 +4,10 @@
       "item": "russiansdelight:wild_cucumber"
     },
     "title": {
-      "text": "Дикий огурец"
+      "translate": "advancement.russiansdelight.wild_cucumber_discovery.title"
     },
     "description": {
-      "text": "Найди дикий огурец"
+      "translate": "advancement.russiansdelight.wild_cucumber_discovery.desc"
     },
     "frame": "task",
     "show_toast": true,

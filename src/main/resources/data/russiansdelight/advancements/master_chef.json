@@ -4,10 +4,10 @@
       "item": "russiansdelight:borscht_pot"
     },
     "title": {
-      "text": "Шеф-повар"
+      "translate": "advancement.russiansdelight.master_chef.title"
     },
     "description": {
-      "text": "Свари все блюда русского застолья"
+      "translate": "advancement.russiansdelight.master_chef.desc"
     },
     "frame": "challenge",
     "show_toast": true,

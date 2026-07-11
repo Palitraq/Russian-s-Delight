@@ -4,10 +4,10 @@
       "item": "russiansdelight:pancakes_tray"
     },
     "title": {
-      "text": "Масленица!"
+      "translate": "advancement.russiansdelight.maslenitsa.title"
     },
     "description": {
-      "text": "Испеки поднос блинов"
+      "translate": "advancement.russiansdelight.maslenitsa.desc"
     },
     "frame": "task",
     "show_toast": true,
