@@ -100,13 +100,6 @@ public abstract class AbstractFoodBlock extends Block {
 		ItemStack itemStack = player.getItemInHand(hand);
 		int servings = blockState.getValue(getServingsProperty());
 
-		System.out.println("=== BLOCK INTERACTION ===");
-		System.out.println("Block Class: " + this.getClass().getSimpleName());
-		System.out.println("Servings: " + servings + "/" + getMaxServings());
-		System.out.println("Held item: " + itemStack.getItem());
-		System.out.println("Is client: " + world.isClientSide());
-		System.out.println("ItemStackIsEmpty: " + itemStack.isEmpty());
-
 		return InteractionResult.PASS;
 	}
 
