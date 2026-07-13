@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "russiansdelight:pancakes_tray"
+      "id": "russiansdelight:pancakes_tray"
     },
     "title": {
       "translate": "advancement.russiansdelight.maslenitsa.title"

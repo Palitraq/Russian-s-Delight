@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 
 public enum FoodItem {
 	// Овощи
-	CUCUMBER(2, 0.4F, false, true, false),
+	CUCUMBER(2, 0.4F, true, false),
 
 	// Ингредиенты
 	BUTTER(3, 0.5F),
@@ -37,33 +37,30 @@ public enum FoodItem {
 	private final Supplier<FoodProperties> food;
 
 	FoodItem(int hunger, float saturation, Supplier<MobEffectInstance> effect,
-			 float effectChance, boolean isMeat, boolean snack, boolean alwaysEdible) {
+			 float effectChance, boolean snack, boolean alwaysEdible) {
 		food = () -> {
 			FoodProperties.Builder builder = new FoodProperties.Builder();
 			builder.nutrition(hunger);
-			builder.saturationMod(saturation);
+			builder.saturationModifier(saturation);
 			if (effect != null) {
 				builder.effect(effect.get(), effectChance);
-			}
-			if (isMeat) {
-				builder.meat();
 			}
 			if (snack) {
 				builder.fast();
 			}
 			if (alwaysEdible) {
-				builder.alwaysEat();
+				builder.alwaysEdible();
 			}
 			return builder.build();
 		};
 	}
 
 	FoodItem(int hunger, float saturation) {
-		this(hunger, saturation, null, 0.0f, false, false, false);
+		this(hunger, saturation, null, 0.0f, false, false);
 	}
 
-	FoodItem(int hunger, float saturation, boolean isMeat, boolean snack, boolean alwaysEdible) {
-		this(hunger, saturation, null, 0.0f, isMeat, snack, alwaysEdible);
+	FoodItem(int hunger, float saturation, boolean snack, boolean alwaysEdible) {
+		this(hunger, saturation, null, 0.0f, snack, alwaysEdible);
 	}
 
 	public FoodProperties getFoodComponent() {

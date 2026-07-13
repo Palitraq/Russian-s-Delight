@@ -10,6 +10,7 @@
     }
   ],
   "result": {
-    "item": "russiansdelight:bread_and_butter"
+    "id": "russiansdelight:bread_and_butter",
+    "count": 1
   }
 }

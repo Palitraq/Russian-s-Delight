@@ -15,7 +15,8 @@
     "iii"
   ],
   "result": {
-    "item": "russiansdelight:small_pot"
+    "id": "russiansdelight:small_pot",
+    "count": 1
   },
   "show_notification": true
 }

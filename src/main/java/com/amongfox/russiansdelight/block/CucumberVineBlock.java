@@ -18,9 +18,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class CucumberVineBlock extends CropBlock {
 	public static final IntegerProperty VINE_AGE = BlockStateProperties.AGE_3;
@@ -31,12 +31,11 @@ public class CucumberVineBlock extends CropBlock {
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return SHAPE;
 	}
 
-	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
 		int age = state.getValue(getAgeProperty());
 		boolean isMature = age == getMaxAge();
 		if (!isMature && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
@@ -47,13 +46,12 @@ public class CucumberVineBlock extends CropBlock {
 			level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
 			level.setBlock(pos, state.setValue(getAgeProperty(), 0), 2);
 			return InteractionResult.SUCCESS;
-		} else {
-			return super.use(state, level, pos, player, hand, hit);
 		}
+		return InteractionResult.PASS;
 	}
 
 	@Override
-	public IntegerProperty getAgeProperty() {
+	public @NotNull IntegerProperty getAgeProperty() {
 		return VINE_AGE;
 	}
 
@@ -63,7 +61,7 @@ public class CucumberVineBlock extends CropBlock {
 	}
 
 	@Override
-	protected ItemLike getBaseSeedId() {
+	protected @NotNull ItemLike getBaseSeedId() {
 		return ModItems.CUCUMBER_SEEDS.get();
 	}
 

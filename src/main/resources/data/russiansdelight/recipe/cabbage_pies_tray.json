@@ -8,8 +8,8 @@
     "P": {
       "item": "minecraft:potato"
     },
-    "s": {
-      "item": "minecraft:sweet_berries"
+    "c": {
+      "item": "farmersdelight:cabbage"
     },
     "B": {
       "item": "minecraft:bowl"
@@ -17,9 +17,10 @@
   },
   "pattern": [
     "dPd",
-    "sBs"
+    "cBc"
   ],
   "result": {
-    "item": "russiansdelight:berries_pies_tray"
+    "id": "russiansdelight:cabbage_pies_tray",
+    "count": 1
   }
 }

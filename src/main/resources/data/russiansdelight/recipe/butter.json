@@ -9,6 +9,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "russiansdelight:butter"
+    "id": "russiansdelight:butter",
+    "count": 1
   }
 }

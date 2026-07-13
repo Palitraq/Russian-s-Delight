@@ -23,7 +23,8 @@
     }
   ],
   "result": {
-    "item": "russiansdelight:shchi_pot"
+    "id": "russiansdelight:shchi_pot",
+    "count": 1
   },
   "experience": 1.0,
   "cookingtime": 1200

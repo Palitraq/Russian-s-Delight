@@ -61,12 +61,6 @@ public enum ModItems {
 			super.registerBlocks(blockToItemMap, item);
 			blockToItemMap.put(ModBlocks.CUCUMBER_CROP.get(), item);
 		}
-
-		@Override
-		public void removeFromBlockToItemMap(@NotNull Map<Block, Item> blockToItemMap, @NotNull Item itemIn) {
-			super.removeFromBlockToItemMap(blockToItemMap, itemIn);
-			blockToItemMap.remove(ModBlocks.CUCUMBER_CROP.get());
-		}
 	});
 
 	private final String pathName;
@@ -101,7 +95,7 @@ public enum ModItems {
 		if (!registered) {
 			this.item = Registry.register(
 					BuiltInRegistries.ITEM,
-					new ResourceLocation(RussiansDelight.MOD_ID, this.pathName),
+					ResourceLocation.fromNamespaceAndPath(RussiansDelight.MOD_ID, this.pathName),
 					this.itemSupplier.get()
 			);
 			this.registered = true;

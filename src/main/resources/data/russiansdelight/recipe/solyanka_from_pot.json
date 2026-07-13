@@ -4,29 +4,33 @@
     {
       "item": "russiansdelight:cucumber"
     },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "farmersdelight:onion"
-    },
     [
       {
         "item": "minecraft:beef"
       },
       {
         "item": "minecraft:porkchop"
+      },
+      {
+        "item": "minecraft:cod"
+      },
+      {
+        "item": "minecraft:salmon"
       }
     ],
     {
-      "item": "farmersdelight:rice"
+      "item": "farmersdelight:onion"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "farmersdelight:tomato"
     }
   ],
   "result": {
-    "item": "russiansdelight:rassolnik_pot"
+    "id": "russiansdelight:solyanka_pot",
+    "count": 1
   },
   "experience": 1.0,
   "cookingtime": 1200

@@ -26,10 +26,10 @@ import org.slf4j.LoggerFactory;
 public class RussiansDelight implements ModInitializer {
 	public static final String MOD_ID = "russiansdelight";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static final ResourceKey<CreativeModeTab> MOD_ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation(MOD_ID));
-	private static final ResourceKey<PlacedFeature> PATCH_WILD_CUCUMBER = ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(MOD_ID, "patch_wild_cucumber"));
-	private static final TagKey<Biome> WILD_CUCUMBER_WHITELIST = TagKey.create(Registries.BIOME, new ResourceLocation(MOD_ID, "wild_cucumber_whitelist"));
-	private static final TagKey<Biome> WILD_CUCUMBER_BLACKLIST = TagKey.create(Registries.BIOME, new ResourceLocation(MOD_ID, "wild_cucumber_blacklist"));
+	public static final ResourceKey<CreativeModeTab> MOD_ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, MOD_ID));
+	private static final ResourceKey<PlacedFeature> PATCH_WILD_CUCUMBER = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "patch_wild_cucumber"));
+	private static final TagKey<Biome> WILD_CUCUMBER_WHITELIST = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(MOD_ID, "wild_cucumber_whitelist"));
+	private static final TagKey<Biome> WILD_CUCUMBER_BLACKLIST = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(MOD_ID, "wild_cucumber_blacklist"));
 
 	@Override
 	public void onInitialize() {

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "russiansdelight:borscht_pot"
+      "id": "russiansdelight:borscht_pot"
     },
     "title": {
       "translate": "advancement.russiansdelight.master_chef.title"

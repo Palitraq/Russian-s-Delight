@@ -1,7 +1,6 @@
 package com.amongfox.russiansdelight.block;
 
 import com.amongfox.russiansdelight.registry.ModItems;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
@@ -20,7 +19,7 @@ public class FishPieBlock extends AbstractTrayBlock {
 	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 7.0, 15.0);
 
 	public FishPieBlock() {
-		super(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).strength(0.5F).sounds(SoundType.WOOD).nonOpaque());
+		super(Block.Properties.ofFullCopy(Blocks.OAK_WOOD).strength(0.5F).sound(SoundType.WOOD).noOcclusion());
 	}
 
 	@Override
@@ -45,12 +44,12 @@ public class FishPieBlock extends AbstractTrayBlock {
 
 	@Override
 	protected SoundEvent getTakeServingSoundEvent() {
-		return SoundEvents.ARMOR_EQUIP_GENERIC;
+		return SoundEvents.ARMOR_EQUIP_GENERIC.value();
 	}
 
 	@Override
 	protected SoundEvent getAddServingSoundEvent() {
-		return SoundEvents.ARMOR_EQUIP_GENERIC;
+		return SoundEvents.ARMOR_EQUIP_GENERIC.value();
 	}
 
 	@Override

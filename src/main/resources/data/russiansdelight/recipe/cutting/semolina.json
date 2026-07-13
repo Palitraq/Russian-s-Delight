@@ -7,10 +7,13 @@
   ],
   "result": [
     {
-      "item": "russiansdelight:semolina"
+      "item": {
+        "id": "russiansdelight:semolina",
+        "count": 1
+      }
     }
   ],
   "tool": {
-    "tag": "c:tools/knives"
+    "tag": "c:tools/knife"
   }
 }

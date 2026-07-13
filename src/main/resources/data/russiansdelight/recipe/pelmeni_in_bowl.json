@@ -1,7 +1,8 @@
 {
   "type": "farmersdelight:cooking",
   "container": {
-    "item": "minecraft:bowl"
+    "id": "minecraft:bowl",
+    "count": 1
   },
   "cookingtime": 600,
   "experience": 1.0,
@@ -21,6 +22,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "russiansdelight:bowl_of_pelmeni"
+    "id": "russiansdelight:bowl_of_pelmeni",
+    "count": 1
   }
 }

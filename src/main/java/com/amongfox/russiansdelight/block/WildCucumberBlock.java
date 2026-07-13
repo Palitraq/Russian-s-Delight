@@ -2,6 +2,7 @@ package com.amongfox.russiansdelight.block;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -17,17 +18,18 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class WildCucumberBlock extends FlowerBlock implements BonemealableBlock {
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
-	public WildCucumberBlock(MobEffect suspiciousStewEffect, int effectDuration, BlockBehaviour.Properties settings) {
+	public WildCucumberBlock(Holder<MobEffect> suspiciousStewEffect, int effectDuration, BlockBehaviour.Properties settings) {
 		super(suspiciousStewEffect, effectDuration, settings);
 		FlammableBlockRegistry.getDefaultInstance().add(this, 100, 60);
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter view, BlockPos pos, CollisionContext context) {
+	public @NotNull VoxelShape getShape(BlockState state, BlockGetter view, BlockPos pos, CollisionContext context) {
 		return SHAPE;
 	}
 
@@ -42,7 +44,7 @@ public class WildCucumberBlock extends FlowerBlock implements BonemealableBlock 
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
 		return true;
 	}
 

@@ -1,8 +1,8 @@
 package com.amongfox.russiansdelight.block;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -10,7 +10,7 @@ import net.minecraft.sounds.SoundSource;
 
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -19,31 +19,32 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractFoodBlock extends Block {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+	public static final IntegerProperty SERVINGS = IntegerProperty.create("servings", 0, 6);
 
-	public AbstractFoodBlock(FabricBlockSettings fabricBlockSettings) {
-		super(fabricBlockSettings);
-		registerDefaultState((BlockState)((BlockState)this.stateDefinition.any()).setValue(getServingsProperty(), getMaxServings()));
+	public AbstractFoodBlock(Properties properties) {
+		super(properties);
+		registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH).setValue(SERVINGS, getMaxServings()));
 	}
 
 	public IntegerProperty getServingsProperty() {
-		return IntegerProperty.create("servings", 0, getMaxServings());
+		return SERVINGS;
 	}
 
 	protected abstract int getMaxServings();
@@ -60,15 +61,14 @@ public abstract class AbstractFoodBlock extends Block {
 		BlockState blockState = defaultBlockState().setValue(FACING, placementContext.getHorizontalDirection().getOpposite());
 
 		ItemStack itemStack = placementContext.getItemInHand();
-		if (itemStack.hasTag()) {
-			CompoundTag nbt = itemStack.getTag();
-			if (nbt != null && nbt.contains("servings")) {
-				int savedServings = nbt.getInt("servings");
-				blockState = blockState.setValue(getServingsProperty(), savedServings);
+		if (itemStack.has(DataComponents.CUSTOM_DATA)) {
+			CompoundTag nbt = Objects.requireNonNull(itemStack.get(DataComponents.CUSTOM_DATA)).copyTag();
+			if (nbt.contains("servings")) {
+				return blockState.setValue(getServingsProperty(), nbt.getInt("servings"));
 			}
 		}
 
-		return blockState;
+		return blockState.setValue(getServingsProperty(), getMaxServings());
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public abstract class AbstractFoodBlock extends Block {
 	}
 
 	@Override
-	public void playerWillDestroy(Level world, BlockPos blockPos, BlockState blockState, Player player) {
+	public @NotNull BlockState playerWillDestroy(Level world, BlockPos blockPos, BlockState blockState, Player player) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		ItemStack blockItem = new ItemStack(this);
@@ -86,36 +86,25 @@ public abstract class AbstractFoodBlock extends Block {
 			if (servings != getMaxServings()) {
 				CompoundTag nbt = new CompoundTag();
 				nbt.putInt("servings", servings);
-				blockItem.setTag(nbt);
+				blockItem.set(DataComponents.CUSTOM_DATA, net.minecraft.world.item.component.CustomData.of(nbt));
 			}
 
 			Block.popResource(world, blockPos, blockItem);
 		}
 
-		super.playerWillDestroy(world, blockPos, blockState, player);
+		return super.playerWillDestroy(world, blockPos, blockState, player);
 	}
 
 	@Override
-	public InteractionResult use(BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-		ItemStack itemStack = player.getItemInHand(hand);
-		int servings = blockState.getValue(getServingsProperty());
-
-		return InteractionResult.PASS;
+	public @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+		if (world.isClientSide()) {
+			return ItemInteractionResult.SUCCESS;
+		}
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	@Override
-	public boolean canSurvive(BlockState blockState, LevelReader worldView, BlockPos blockPos) {
-		return worldView.getBlockState(blockPos.below()).isSolid();
-	}
-
-	@Override
-	public BlockState updateShape(BlockState blockState, Direction direction, BlockState neighborState, LevelAccessor worldAccess, BlockPos blockPos, BlockPos neighborPos) {
+	public @NotNull BlockState updateShape(BlockState blockState, Direction direction, BlockState neighborState, LevelAccessor worldAccess, BlockPos blockPos, BlockPos neighborPos) {
 		return super.updateShape(blockState, direction, neighborState, worldAccess, blockPos, neighborPos);
-	}
-
-	@Override
-	public boolean isPathfindable(BlockState blockState, BlockGetter blockView, BlockPos pos, PathComputationType navigationType) {
-		return false;
 	}
 
 	@Override
@@ -129,7 +118,7 @@ public abstract class AbstractFoodBlock extends Block {
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState blockState, BlockGetter blockView, BlockPos blockPos, CollisionContext shapeContext) {
+	public @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockView, BlockPos blockPos, CollisionContext shapeContext) {
 		return getShape();
 	}
 
@@ -137,7 +126,7 @@ public abstract class AbstractFoodBlock extends Block {
 		return new ItemStack(getFoodItem());
 	}
 
-	public InteractionResult addServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
+	public ItemInteractionResult addServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		ItemStack heldItem = player.getItemInHand(hand);
@@ -153,13 +142,13 @@ public abstract class AbstractFoodBlock extends Block {
 					player.drop(bowl, false);
 				}
 			}
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		}
 
-		return InteractionResult.PASS;
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	public InteractionResult eatDirectly(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
+	public ItemInteractionResult eatDirectly(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		ItemStack serving = getServingStack();
@@ -168,17 +157,17 @@ public abstract class AbstractFoodBlock extends Block {
 			world.setBlock(blockPos, blockState.setValue(getServingsProperty(), servings - 1), 3);
 			world.playSound(null, blockPos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 1.0F);
 
-			player.getFoodData().eat(serving.getItem(), serving);
+			player.getFoodData().eat(serving.get(DataComponents.FOOD));
 
 			player.swing(hand);
 
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		}
 
-		return InteractionResult.PASS;
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	public InteractionResult pickupLeftovers(Level world, BlockPos blockPos, Player player) {
+	public ItemInteractionResult pickupLeftovers(Level world, BlockPos blockPos, Player player) {
 		world.playSound(null, blockPos, getBreakSoundEvent(), SoundSource.PLAYERS, 0.8F, 0.8F);
 		world.destroyBlock(blockPos, false, player);
 
@@ -188,6 +177,6 @@ public abstract class AbstractFoodBlock extends Block {
 			Containers.dropItemStack(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), stack);
 		}
 
-		return InteractionResult.SUCCESS;
+		return ItemInteractionResult.SUCCESS;
 	}
 }

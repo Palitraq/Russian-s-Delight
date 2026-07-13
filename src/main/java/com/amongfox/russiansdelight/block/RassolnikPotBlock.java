@@ -1,7 +1,6 @@
 package com.amongfox.russiansdelight.block;
 
 import com.amongfox.russiansdelight.registry.ModItems;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
@@ -19,7 +18,7 @@ public class RassolnikPotBlock extends AbstractPotBlock {
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 7.0, 14.0);
 
 	public RassolnikPotBlock() {
-		super(FabricBlockSettings.copyOf(Blocks.BRICKS).strength(0.5F).sounds(SoundType.ANVIL).nonOpaque());
+		super(Block.Properties.ofFullCopy(Blocks.BRICKS).strength(0.5F).sound(SoundType.ANVIL).noOcclusion());
 	}
 
 	@Override

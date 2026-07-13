@@ -1,13 +1,13 @@
 {
   "display": {
     "icon": {
-      "item": "russiansdelight:wild_cucumber"
+      "id": "russiansdelight:borscht_pot"
     },
     "title": {
-      "translate": "advancement.russiansdelight.wild_cucumber_discovery.title"
+      "translate": "advancement.russiansdelight.vkusnyatina.title"
     },
     "description": {
-      "translate": "advancement.russiansdelight.wild_cucumber_discovery.desc"
+      "translate": "advancement.russiansdelight.vkusnyatina.desc"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,15 +16,11 @@
   },
   "parent": "russiansdelight:root",
   "criteria": {
-    "has_wild_cucumber": {
+    "has_borscht_pot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          {
-            "items": [
-              "russiansdelight:wild_cucumber"
-            ]
-          }
+          { "items": [ "russiansdelight:borscht_pot" ] }
         ]
       }
     }

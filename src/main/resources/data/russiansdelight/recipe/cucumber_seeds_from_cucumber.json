@@ -5,6 +5,7 @@
     { "item": "russiansdelight:cucumber" }
   ],
   "result": {
-    "item": "russiansdelight:cucumber_seeds"
+    "id": "russiansdelight:cucumber_seeds",
+    "count": 1
   }
 }

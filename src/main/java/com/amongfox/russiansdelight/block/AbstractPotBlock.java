@@ -1,46 +1,45 @@
 package com.amongfox.russiansdelight.block;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractPotBlock extends AbstractFoodBlock {
-	public AbstractPotBlock(FabricBlockSettings settings) {
+	public AbstractPotBlock(Properties settings) {
 		super(settings);
 	}
 
 	@Override
-	public InteractionResult use(BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-		ItemStack itemStack = player.getItemInHand(hand);
+	public @NotNull ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		if (itemStack.is(Items.BOWL) && servings > 0) {
-			if (world.isClientSide()) return InteractionResult.SUCCESS;
+			if (world.isClientSide()) return ItemInteractionResult.SUCCESS;
 			return takeServing(world, blockPos, blockState, player, hand);
 		}
 
 		if (itemStack.is(getFoodItem()) && servings < getMaxServings()) {
-			if (world.isClientSide()) return InteractionResult.SUCCESS;
+			if (world.isClientSide()) return ItemInteractionResult.SUCCESS;
 			return addServing(world, blockPos, blockState, player, hand);
 		}
 
 		if (servings <= 0 && itemStack.isEmpty()) {
-			if (world.isClientSide()) return InteractionResult.SUCCESS;
+			if (world.isClientSide()) return ItemInteractionResult.SUCCESS;
 			return pickupLeftovers(world, blockPos, player);
 		}
 
-		return InteractionResult.PASS;
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 
-	public InteractionResult takeServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
+	public ItemInteractionResult takeServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		ItemStack serving = getServingStack();
@@ -58,8 +57,8 @@ public abstract class AbstractPotBlock extends AbstractFoodBlock {
 				player.drop(serving, false);
 			}
 
-			return InteractionResult.SUCCESS;
+			return ItemInteractionResult.SUCCESS;
 		}
-		return InteractionResult.PASS;
+		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 }
