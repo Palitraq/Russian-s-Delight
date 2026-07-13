@@ -1,6 +1,6 @@
 {
   "render_type": "minecraft:cutout",
-  "parent": "farmersdelight:block/crop_cross",
+  "parent": "minecraft:block/cross",
   "textures": {
     "cross": "russiansdelight:block/cucumber_stage2"
   }
