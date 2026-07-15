@@ -72,6 +72,9 @@ public enum ModItems {
 	private boolean registered = false;
 
 	private static Item.Properties createFoodSettings(FoodItem foodItem) {
+		if (foodItem.getConsumable() != null) {
+			return new Item.Properties().food(foodItem.getFoodComponent(), foodItem.getConsumable());
+		}
 		return new Item.Properties().food(foodItem.getFoodComponent());
 	}
 

@@ -1,6 +1,8 @@
 package com.amongfox.russiansdelight.item;
 
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.component.Consumable;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
@@ -34,6 +36,8 @@ public enum FoodItem {
 	SEMOLINA_PORRIDGE(10, 0.7F);
 
 	private final Supplier<FoodProperties> food;
+	@Nullable
+	private final Supplier<Consumable> consumable;
 
 	FoodItem(int hunger, float saturation, boolean snack, boolean alwaysEdible) {
 		food = () -> {
@@ -45,6 +49,14 @@ public enum FoodItem {
 			}
 			return builder.build();
 		};
+		if (snack) {
+			consumable = () -> Consumable.builder()
+					.consumeSeconds(0.8F)
+					.animation(net.minecraft.world.item.ItemUseAnimation.EAT)
+					.build();
+		} else {
+			consumable = null;
+		}
 	}
 
 	FoodItem(int hunger, float saturation) {
@@ -53,5 +65,10 @@ public enum FoodItem {
 
 	public FoodProperties getFoodComponent() {
 		return food.get();
+	}
+
+	@Nullable
+	public Consumable getConsumable() {
+		return consumable != null ? consumable.get() : null;
 	}
 }
