@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "package": "com.amongfox.russiansdelight.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "FarmersDelightClientMixin",
+    "FDRecipeBookTypesMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

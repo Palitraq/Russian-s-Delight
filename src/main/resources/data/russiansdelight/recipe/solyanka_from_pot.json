@@ -1,32 +1,11 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
-    {
-      "item": "russiansdelight:cucumber"
-    },
-    [
-      {
-        "item": "minecraft:beef"
-      },
-      {
-        "item": "minecraft:porkchop"
-      },
-      {
-        "item": "minecraft:cod"
-      },
-      {
-        "item": "minecraft:salmon"
-      }
-    ],
-    {
-      "item": "farmersdelight:onion"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "farmersdelight:tomato"
-    }
+    "russiansdelight:cucumber",
+    ["minecraft:beef", "minecraft:porkchop", "minecraft:cod", "minecraft:salmon"],
+    "farmersdelight:onion",
+    "minecraft:carrot",
+    "farmersdelight:tomato"
   ],
   "result": {
     "id": "russiansdelight:solyanka_pot",

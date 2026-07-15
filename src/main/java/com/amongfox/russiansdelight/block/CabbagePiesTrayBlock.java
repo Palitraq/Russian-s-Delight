@@ -7,8 +7,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.ArrayList;
@@ -18,8 +16,8 @@ public class CabbagePiesTrayBlock extends AbstractTrayBlock {
 	private static final int MAX_SERVINGS = 3;
 	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 5.0, 15.0);
 
-	public CabbagePiesTrayBlock() {
-		super(Block.Properties.ofFullCopy(Blocks.OAK_WOOD).strength(0.5F).sound(SoundType.WOOD).noOcclusion());
+	public CabbagePiesTrayBlock(Block.Properties properties) {
+		super(properties);
 	}
 
 	@Override

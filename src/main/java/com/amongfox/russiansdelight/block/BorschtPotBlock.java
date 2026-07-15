@@ -6,8 +6,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.ArrayList;
@@ -17,8 +15,8 @@ public class BorschtPotBlock extends AbstractPotBlock {
 	private static final int MAX_SERVINGS = 6;
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 7.0, 14.0);
 
-	public BorschtPotBlock() {
-		super(Block.Properties.ofFullCopy(Blocks.BRICKS).strength(0.5F).sound(SoundType.ANVIL).noOcclusion());
+	public BorschtPotBlock(Block.Properties properties) {
+		super(properties);
 	}
 
 	@Override

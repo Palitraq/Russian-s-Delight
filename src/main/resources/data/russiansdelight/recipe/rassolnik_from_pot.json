@@ -1,29 +1,12 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
-    {
-      "item": "russiansdelight:cucumber"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "farmersdelight:onion"
-    },
-    [
-      {
-        "item": "minecraft:beef"
-      },
-      {
-        "item": "minecraft:porkchop"
-      }
-    ],
-    {
-      "item": "farmersdelight:rice"
-    }
+    "russiansdelight:cucumber",
+    "minecraft:potato",
+    "minecraft:carrot",
+    "farmersdelight:onion",
+    ["minecraft:beef", "minecraft:porkchop"],
+    "farmersdelight:rice"
   ],
   "result": {
     "id": "russiansdelight:rassolnik_pot",

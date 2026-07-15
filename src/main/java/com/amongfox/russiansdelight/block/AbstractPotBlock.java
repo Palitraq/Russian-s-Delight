@@ -3,7 +3,7 @@ package com.amongfox.russiansdelight.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -18,28 +18,28 @@ public abstract class AbstractPotBlock extends AbstractFoodBlock {
 	}
 
 	@Override
-	public @NotNull ItemInteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+	public @NotNull InteractionResult useItemOn(ItemStack itemStack, BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		if (itemStack.is(Items.BOWL) && servings > 0) {
-			if (world.isClientSide()) return ItemInteractionResult.SUCCESS;
+			if (world.isClientSide()) return InteractionResult.SUCCESS;
 			return takeServing(world, blockPos, blockState, player, hand);
 		}
 
 		if (itemStack.is(getFoodItem()) && servings < getMaxServings()) {
-			if (world.isClientSide()) return ItemInteractionResult.SUCCESS;
+			if (world.isClientSide()) return InteractionResult.SUCCESS;
 			return addServing(world, blockPos, blockState, player, hand);
 		}
 
 		if (servings <= 0 && itemStack.isEmpty()) {
-			if (world.isClientSide()) return ItemInteractionResult.SUCCESS;
+			if (world.isClientSide()) return InteractionResult.SUCCESS;
 			return pickupLeftovers(world, blockPos, player);
 		}
 
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		return InteractionResult.TRY_WITH_EMPTY_HAND;
 	}
 
-	public ItemInteractionResult takeServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
+	public InteractionResult takeServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		ItemStack serving = getServingStack();
@@ -57,8 +57,8 @@ public abstract class AbstractPotBlock extends AbstractFoodBlock {
 				player.drop(serving, false);
 			}
 
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		return InteractionResult.TRY_WITH_EMPTY_HAND;
 	}
 }

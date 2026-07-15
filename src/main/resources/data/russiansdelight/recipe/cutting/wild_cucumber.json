@@ -1,33 +1,23 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    {
-      "item": "russiansdelight:wild_cucumber"
-    }
+    "russiansdelight:wild_cucumber"
   ],
   "result": [
     {
-      "item": {
-        "id": "russiansdelight:cucumber_seeds",
-        "count": 1
-      }
+      "id": "russiansdelight:cucumber_seeds",
+      "count": 1
     },
     {
       "chance": 0.2,
-      "item": {
-        "id": "russiansdelight:cucumber",
-        "count": 1
-      }
+      "id": "russiansdelight:cucumber",
+      "count": 1
     },
     {
       "chance": 0.05,
-      "item": {
-        "id": "minecraft:yellow_dye",
-        "count": 1
-      }
+      "id": "minecraft:yellow_dye",
+      "count": 1
     }
   ],
-  "tool": {
-    "tag": "c:tools/knife"
-  }
+  "tool": "#c:tools/knife"
 }

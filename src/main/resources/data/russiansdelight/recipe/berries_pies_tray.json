@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "food",
   "key": {
-    "d": {
-      "item": "farmersdelight:wheat_dough"
-    },
-    "P": {
-      "item": "minecraft:potato"
-    },
-    "s": {
-      "item": "minecraft:sweet_berries"
-    },
-    "B": {
-      "item": "minecraft:bowl"
-    }
+    "d": "farmersdelight:wheat_dough",
+    "P": "minecraft:potato",
+    "s": "minecraft:sweet_berries",
+    "B": "minecraft:bowl"
   },
   "pattern": [
     "dPd",

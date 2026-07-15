@@ -2,22 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "food",
   "key": {
-    "f": [
-      { "item": "minecraft:cod" },
-      { "item": "minecraft:salmon" },
-      { "item": "minecraft:pufferfish" },
-      { "item": "minecraft:tropical_fish" }
-    ],
-    "m": [
-      { "item": "minecraft:brown_mushroom" },
-      { "item": "minecraft:red_mushroom" }
-    ],
-    "r": {
-      "item": "farmersdelight:rice"
-    },
-    "p": {
-      "item": "farmersdelight:pie_crust"
-    }
+    "f": ["minecraft:cod", "minecraft:salmon", "minecraft:pufferfish", "minecraft:tropical_fish"],
+    "m": ["minecraft:brown_mushroom", "minecraft:red_mushroom"],
+    "r": "farmersdelight:rice",
+    "p": "farmersdelight:pie_crust"
   },
   "pattern": [
     "fff",
