@@ -1,6 +1,5 @@
 package com.amongfox.russiansdelight.item;
 
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 
 import java.util.function.Supplier;
@@ -36,18 +35,11 @@ public enum FoodItem {
 
 	private final Supplier<FoodProperties> food;
 
-	FoodItem(int hunger, float saturation, Supplier<MobEffectInstance> effect,
-			 float effectChance, boolean snack, boolean alwaysEdible) {
+	FoodItem(int hunger, float saturation, boolean snack, boolean alwaysEdible) {
 		food = () -> {
 			FoodProperties.Builder builder = new FoodProperties.Builder();
 			builder.nutrition(hunger);
 			builder.saturationModifier(saturation);
-			if (effect != null) {
-				builder.effect(effect.get(), effectChance);
-			}
-			if (snack) {
-				builder.fast();
-			}
 			if (alwaysEdible) {
 				builder.alwaysEdible();
 			}
@@ -56,11 +48,7 @@ public enum FoodItem {
 	}
 
 	FoodItem(int hunger, float saturation) {
-		this(hunger, saturation, null, 0.0f, false, false);
-	}
-
-	FoodItem(int hunger, float saturation, boolean snack, boolean alwaysEdible) {
-		this(hunger, saturation, null, 0.0f, snack, alwaysEdible);
+		this(hunger, saturation, false, false);
 	}
 
 	public FoodProperties getFoodComponent() {

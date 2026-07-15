@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "food",
   "ingredients": [
-    { "item": "russiansdelight:cucumber" }
+    "russiansdelight:cucumber"
   ],
   "result": {
     "id": "russiansdelight:cucumber_seeds",

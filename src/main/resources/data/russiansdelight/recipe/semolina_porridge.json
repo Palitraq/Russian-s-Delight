@@ -7,15 +7,9 @@
   "cookingtime": 600,
   "experience": 0.5,
   "ingredients": [
-    {
-      "item": "russiansdelight:semolina"
-    },
-    {
-      "item": "russiansdelight:butter"
-    },
-    {
-      "item": "minecraft:sugar"
-    }
+    "russiansdelight:semolina",
+    "russiansdelight:butter",
+    "minecraft:sugar"
   ],
   "recipe_book_tab": "meals",
   "result": {

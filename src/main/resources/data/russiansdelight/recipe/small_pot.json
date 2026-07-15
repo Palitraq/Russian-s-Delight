@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "b": {
-      "item": "minecraft:brick"
-    },
-    "i": {
-      "tag": "c:iron_ingots"
-    }
+    "b": "minecraft:brick",
+    "i": "#c:iron_ingots"
   },
   "pattern": [
     "   ",

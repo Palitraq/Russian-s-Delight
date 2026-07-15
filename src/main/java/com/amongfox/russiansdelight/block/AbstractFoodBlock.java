@@ -10,7 +10,7 @@ import net.minecraft.sounds.SoundSource;
 
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -18,16 +18,18 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,7 +37,7 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class AbstractFoodBlock extends Block {
-	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+	public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 	public static final IntegerProperty SERVINGS = IntegerProperty.create("servings", 0, 6);
 
 	public AbstractFoodBlock(Properties properties) {
@@ -64,7 +66,7 @@ public abstract class AbstractFoodBlock extends Block {
 		if (itemStack.has(DataComponents.CUSTOM_DATA)) {
 			CompoundTag nbt = Objects.requireNonNull(itemStack.get(DataComponents.CUSTOM_DATA)).copyTag();
 			if (nbt.contains("servings")) {
-				return blockState.setValue(getServingsProperty(), nbt.getInt("servings"));
+				return blockState.setValue(getServingsProperty(), nbt.getInt("servings").orElse(0));
 			}
 		}
 
@@ -96,15 +98,15 @@ public abstract class AbstractFoodBlock extends Block {
 	}
 
 	@Override
-	public @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+	public @NotNull InteractionResult useItemOn(ItemStack stack, BlockState blockState, Level world, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hitResult) {
 		if (world.isClientSide()) {
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		return InteractionResult.TRY_WITH_EMPTY_HAND;
 	}
 
-	public @NotNull BlockState updateShape(BlockState blockState, Direction direction, BlockState neighborState, LevelAccessor worldAccess, BlockPos blockPos, BlockPos neighborPos) {
-		return super.updateShape(blockState, direction, neighborState, worldAccess, blockPos, neighborPos);
+	public @NotNull BlockState updateShape(BlockState blockState, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+		return super.updateShape(blockState, level, scheduledTickAccess, blockPos, direction, neighborPos, neighborState, random);
 	}
 
 	@Override
@@ -126,7 +128,7 @@ public abstract class AbstractFoodBlock extends Block {
 		return new ItemStack(getFoodItem());
 	}
 
-	public ItemInteractionResult addServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
+	public InteractionResult addServing(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		ItemStack heldItem = player.getItemInHand(hand);
@@ -142,32 +144,32 @@ public abstract class AbstractFoodBlock extends Block {
 					player.drop(bowl, false);
 				}
 			}
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
 
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		return InteractionResult.TRY_WITH_EMPTY_HAND;
 	}
 
-	public ItemInteractionResult eatDirectly(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
+	public InteractionResult eatDirectly(Level world, BlockPos blockPos, BlockState blockState, Player player, InteractionHand hand) {
 		int servings = blockState.getValue(getServingsProperty());
 
 		ItemStack serving = getServingStack();
 
 		if (player.canEat(false)) {
 			world.setBlock(blockPos, blockState.setValue(getServingsProperty(), servings - 1), 3);
-			world.playSound(null, blockPos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 1.0F);
+			world.playSound(null, blockPos, SoundEvents.GENERIC_EAT.value(), SoundSource.PLAYERS, 0.8F, 1.0F);
 
 			player.getFoodData().eat(serving.get(DataComponents.FOOD));
 
 			player.swing(hand);
 
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
 
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		return InteractionResult.TRY_WITH_EMPTY_HAND;
 	}
 
-	public ItemInteractionResult pickupLeftovers(Level world, BlockPos blockPos, Player player) {
+	public InteractionResult pickupLeftovers(Level world, BlockPos blockPos, Player player) {
 		world.playSound(null, blockPos, getBreakSoundEvent(), SoundSource.PLAYERS, 0.8F, 0.8F);
 		world.destroyBlock(blockPos, false, player);
 
@@ -177,6 +179,6 @@ public abstract class AbstractFoodBlock extends Block {
 			Containers.dropItemStack(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), stack);
 		}
 
-		return ItemInteractionResult.SUCCESS;
+		return InteractionResult.SUCCESS;
 	}
 }

@@ -7,18 +7,10 @@
   "cookingtime": 600,
   "experience": 1.0,
   "ingredients": [
-    {
-      "item": "russiansdelight:dumpling"
-    },
-    {
-      "item": "russiansdelight:dumpling"
-    },
-    {
-      "item": "russiansdelight:dumpling"
-    },
-    {
-      "item": "minecraft:brown_mushroom"
-    }
+    "russiansdelight:dumpling",
+    "russiansdelight:dumpling",
+    "russiansdelight:dumpling",
+    "minecraft:brown_mushroom"
   ],
   "recipe_book_tab": "meals",
   "result": {

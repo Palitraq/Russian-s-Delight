@@ -2,14 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "food",
   "ingredients": [
-    { "item": "farmersdelight:wheat_dough" },
-    [
-      { "item": "minecraft:beef" },
-      { "item": "minecraft:porkchop" },
-      { "item": "minecraft:chicken" },
-      { "item": "minecraft:mutton" },
-      { "item": "minecraft:rabbit" }
-    ]
+    "farmersdelight:wheat_dough",
+    ["minecraft:beef", "minecraft:porkchop", "minecraft:chicken", "minecraft:mutton", "minecraft:rabbit"]
   ],
   "result": {
     "id": "russiansdelight:dumpling",

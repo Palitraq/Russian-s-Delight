@@ -10,6 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -26,12 +27,12 @@ public class BuddingCucumberBlock extends BuddingBushBlock implements Bonemealab
 		return pState.is(vectorwing.farmersdelight.common.registry.ModBlocks.RICH_SOIL_FARMLAND.get()) || pState.is(Blocks.FARMLAND);
 	}
 
-	public @NotNull BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+	public @NotNull BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess scheduledTickAccess, BlockPos currentPos, Direction facing, BlockPos facingPos, BlockState facingState, RandomSource random) {
 		if (state.getValue(AGE) == 4) {
-			level.setBlock(currentPos, ModBlocks.CUCUMBER_CROP.get().defaultBlockState(), 3);
+			((LevelAccessor) level).setBlock(currentPos, ModBlocks.CUCUMBER_CROP.get().defaultBlockState(), 3);
 		}
 
-		return super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+		return super.updateShape(state, level, scheduledTickAccess, currentPos, facing, facingPos, facingState, random);
 	}
 
 	public boolean canGrowPastMaxAge() {

@@ -1,19 +1,13 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    {
-      "item": "minecraft:wheat"
-    }
+    "minecraft:wheat"
   ],
   "result": [
     {
-      "item": {
-        "id": "russiansdelight:semolina",
-        "count": 1
-      }
+      "id": "russiansdelight:semolina",
+      "count": 1
     }
   ],
-  "tool": {
-    "tag": "c:tools/knife"
-  }
+  "tool": "#c:tools/knife"
 }
